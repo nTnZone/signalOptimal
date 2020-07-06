@@ -1,9 +1,0 @@
-\BOOKMARK [1][-]{section.1}{引言}{}% 1
-\BOOKMARK [1][-]{section.2}{情感识别特征的提取}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{语音信号特征提取}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{脑电信号特征提取}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{基于KCCA的特征融合}{}% 5
-\BOOKMARK [1][-]{section.4}{SVM情感分类器}{}% 6
-\BOOKMARK [1][-]{section.5}{仿真实验}{}% 7
-\BOOKMARK [1][-]{section.6}{思考与改进}{}% 8
-\BOOKMARK [1][-]{section*.3}{参考文献}{}% 9
