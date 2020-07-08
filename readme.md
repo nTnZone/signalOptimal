@@ -10,5 +10,5 @@ ip: `10.168.20.166`, ssh port:`22`
                执行`source ~/.bashrc`生效。
 4. `git clone https://github.com/nTnZone/signalOptimal.git` 
 5. `cd signalOptimal && chmod +x artratex.sh`
-6. `./artratex.sh xa`
+6. `./artratex.sh x`
 7. `cd Tmp`，在Tmp目录下利用sftp工具取回`main.pdf`
