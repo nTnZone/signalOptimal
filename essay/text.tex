@@ -13,8 +13,9 @@
     \label{fig:SVM}
 \end{figure}
 
-当SVM用于处理回归问题时，目标是找到一个函数f（x），它对每个训练点x偏离$y_n$的值不大于ε，同时尽可能平坦。假设我们有一组训练样本，其中$x_n$是一个包含n个观测值的集合，$y_n$是对应的观测结果。
-为了找到线性方程$f(x)=x′β+b$, 确保其足够平坦，需要找到满足最小范数$(β′β)$条件的f(x)。这是一个凸优化问题，以最小化$J(β)=12β′$β。
+当SVM用于处理回归问题时，目标是找到一个函数$f\left ( x \right )$，它对每个训练点x偏离$y_n$的值不大于$\varepsilon$，同时尽可能平坦。假设我们有一组训练样本，其中$x_n$是一个包含n个观测值的集合，$y_n$是对应的观测结果。
+
+为了找到线性方程$f(x)=x^\prime\beta+b$, 确保其足够平坦，需要找到满足最小范数$\left(\beta^\prime\beta\right)$条件的$f(x)$。这是一个凸优化问题，以最小化$J(β)=12β′$β。
 
 并满足如下等式：
 \begin{equation}
@@ -37,8 +38,8 @@ J\left(\beta\right)=0.5\ast\beta^\prime\beta+C\sum_{n=1}^{N}{\xi_n+\xi_n^\ast}
 \end{gathered}
 \end{equation}
 
-常数C是框约束，是一个正数值，它控制对\varepsilon 边界（\varepsilon ）之外的观测值施加的惩罚，并有助于防止过度拟合（正则化）。该值决定了f（x）的平面度与允许大于ε的偏差量之间的权衡,用于寻求泛化性能与训练误差之间的折中。
-线性ε-不敏感损失函数将观测值ε距离内的误差视为零而忽略。根据观测值y与ε边界之间的距离来测量误差。用如下的数学公式表示：
+常数C是框约束，是一个正数值，它控制对$\varepsilon$ 边界（$\varepsilon$ ）之外的观测值施加的惩罚，并有助于防止过度拟合（正则化）。该值决定了$f（x）$的平面度与允许大于$\varepsilon$的偏差量之间的权衡,用于寻求泛化性能与训练误差之间的折中。
+线性$\varepsilon$-不敏感损失函数将观测值$\varepsilon$距离内的误差视为零而忽略。根据观测值y与$\varepsilon$边界之间的距离来测量误差。用如下的数学公式表示：
 
 \begin{equation}
 L_\varepsilon= 
@@ -55,29 +56,29 @@ x是期望信号，为了得到x，需要对观测信号y进行线性滤波。
 \begin{equation}
 \begin{aligned}
 z&=h^Hy\\
-&= h^H\left(x+v_0\right)
+&= h^H\left(x+v_0\right)\\
 &=x_{fd}+v_{rn}
 \end{aligned}
 \end{equation}
 
-$v_0$是加性白噪声.z是x的估计，也是滤波器的输出信号，
+$v_0$是加性白噪声，z是x的估计，也是滤波器的输出信号，
 
 \begin{equation}
 h=\left[h_1h_2\ldots h_M\right]^T
 \end{equation}
 
-是长度为M的复数滤波器。
+$h$是长度为M的复数滤波器。
 
 \begin{equation}
 x_{fd}= h^Hx
 \end{equation}
 
-是期望滤波信号
+$x_{fd}$是期望滤波信号
 \begin{equation}
 v_{rn}=\ h^Hv_0
 \end{equation}
 
-是残差噪声。
+$v_{rn}$是残差噪声。
 \begin{equation}
 I_M={Q'}_X{Q'}_X^H+{Q''}_X{Q''}_X^H
 \end{equation}
