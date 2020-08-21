@@ -15,7 +15,7 @@
 
 当SVM用于处理回归问题时，目标是找到一个函数$f\left ( x \right )$，它对每个训练点x偏离$y_n$的值不大于$\varepsilon$，同时尽可能平坦。假设我们有一组训练样本，其中$x_n$是一个包含n个观测值的集合，$y_n$是对应的观测结果。
 
-为了找到线性方程$f(x)=x^\prime\beta+b$, 确保其足够平坦，需要找到满足最小范数$\left(\beta^\prime\beta\right)$条件的$f(x)$。这是一个凸优化问题，以最小化$J(β)=12β′$β。
+为了找到线性方程$f(x)=x^\prime\beta+b$, 确保其足够平坦，需要找到满足最小范数$\left(\beta^\prime\beta\right)$条件的$f(x)$。这是一个凸优化问题，以最小化$J(\beta)=12\beta^\prime\beta$。
 
 并满足如下等式：
 \begin{equation}
@@ -112,6 +112,11 @@ h^HQ_x^\le i_i^TQ_x'
 &-\sum_{i=1}^{N}{\beta_i\left(-h^HQ_{xi}'+i_i^TQ'\right)}
 \end{aligned}
 \end{equation}
+得到对偶函数：
+\begin{equation}
+max: g(\alpha_i, \alpha _i{}')\sum_{i=1}^{N}\alpha _i{}'(1-\varepsilon )-\alpha_i(1+\varepsilon )-\frac{1}{2}\sum_{i=1}^{N}\sum_{j=1}^{N}(\alpha_i-\alpha _i{}')(\alpha _j{}'-\alpha_j)X^{T}R^{-1}X
+s.t.\quad \alpha_i, \alpha _i{}'\geq 0
+\end{equation}
 
 \section{仿真实验}
 为了测试该算法回归性能，在matlab上进行实验验证。设期望信号由五个谐波随机过程组成：$x\left(t\right)=\sum_{k=1}^{5}{A_kcos\left(2\pi f_kt+\phi_k\right)}$,其中振幅$A_k=0.5/k\left(k=1,\ldots,5\right)$,频率$f_k=0.05+0.1\left(k-1\right)\left(k=1,\ldots,5\right)$,随机相位$\phi_k$服从独立同分布，在区间0到$2\pi$上的均匀分布。需要在噪声观测下
@@ -126,4 +131,4 @@ $y\left(t\right)=x\left(t\right)+v\left(t\right)$恢复出原信号，v(t)是白
 
 
 \section{思考与改进}
-总的来说本次仿真实验还有很多不足。首先在数据上由于相关知识的缺失，导致退而求其次并没有选择有色噪声而是选择了白噪声。由于MVDR的缺失导致最后在结果上也差强人意
+引入了MVDR算法使得仿真结果得到提升，更加符合预期。本次仿真实验还有可以改进的地方，比如选用有色噪声而不是白噪声。
